@@ -5,13 +5,13 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Fira Code:size=13",
-                                        "Font Awesome 5 Free Solid:size=13",
-                                        "JoyPixels:size=13:antialias=true:autohint=true",
-                                        "Noto Fonts Emoji:size=13:antialias=true:autohint=true",
-                                        "monospace:size=13"
+static const char *fonts[]          = { "Fira Code:size=11",
+                                        "Font Awesome 5 Free Solid:size=11",
+                                        "JoyPixels:size=11:antialias=true:autohint=true",
+                                        "Noto Fonts Emoji:size=11:antialias=true:autohint=true",
+                                        "monospace:size=11"
 										};
-static const char dmenufont[]       = "monospace:size=13";
+static const char dmenufont[]       = "monospace:size=11";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -68,8 +68,8 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *filemgrcmd[]  = { "nautilus", NULL };
 static const char *browsercmd[]  = { "firefox", NULL };
-static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
-static const char *clipmenucmd[] = { "clipmenu", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+//static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
+//static const char *clipmenucmd[] = { "clipmenu", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *raisevolumecmd[] = { "pamixer", "-i", "5", NULL };
 static const char *lowervolumecmd[] = { "pamixer", "-d", "5", NULL };
 //static const char *muteoutputcmd[] = { "pamixer", "-m", NULL };
@@ -78,13 +78,19 @@ static const char *prevsongcmd[] = { "playerctl", "previous", NULL };
 static const char *playpausesongcmd[] = { "playerctl", "play-pause", NULL };
 //static const char *mutemiccmd[] = { "amixer", "set", "Capture", "toggle", NULL };
 //static const char *lockcmd[] = { "slock", NULL };
+static const char *lightUP[] = { "brightnessctl", "s", "10%+", NULL };
+
+static const char *lightDOWN[] = { "brightnessctl", "s", "10%-", NULL };
+
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,		                    XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,		                    XK_e,      spawn,          {.v = filemgrcmd } },
-	{ MODKEY,		                    XK_f,      spawn,          {.v = browsercmd } },
+	{ MODKEY,		                XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,		                XK_e,      spawn,          {.v = filemgrcmd } },
+	{ MODKEY,		                XK_f,      spawn,          {.v = browsercmd } },
+	{ MODKEY,		                XK_8,      spawn,          {.v = lightDOWN } },
+	{ MODKEY,		                XK_9,      spawn,          {.v = lightUP } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -95,9 +101,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,			                  XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	//{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+	//{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+	//{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating,  {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
