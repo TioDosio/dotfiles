@@ -16,7 +16,7 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char col_cyan[]        = "#000000";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -45,8 +45,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	//{ "><>",      NULL },    /* no layout function means floating behavior */
+	//{ "[M]",      monocle },
 };
 
 /* key definitions */
@@ -72,12 +72,9 @@ static const char *browsercmd[]  = { "firefox", NULL };
 //static const char *clipmenucmd[] = { "clipmenu", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *raisevolumecmd[] = { "pamixer", "-i", "5", NULL };
 static const char *lowervolumecmd[] = { "pamixer", "-d", "5", NULL };
-//static const char *muteoutputcmd[] = { "pamixer", "-m", NULL };
 static const char *nextsongcmd[] = { "playerctl", "next", NULL };
 static const char *prevsongcmd[] = { "playerctl", "previous", NULL };
 static const char *playpausesongcmd[] = { "playerctl", "play-pause", NULL };
-//static const char *mutemiccmd[] = { "amixer", "set", "Capture", "toggle", NULL };
-//static const char *lockcmd[] = { "slock", NULL };
 static const char *lightUP[] = { "brightnessctl", "s", "10%+", NULL };
 
 static const char *lightDOWN[] = { "brightnessctl", "s", "10%-", NULL };
@@ -106,7 +103,7 @@ static Key keys[] = {
 	//{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating,  {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
+	{ MODKEY,                       XK_6,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
@@ -117,10 +114,10 @@ static Key keys[] = {
 	TAGKEYS(                        XK_3,                      2)
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
+	//TAGKEYS(                        XK_6,                      5)
+	//TAGKEYS(                        XK_7,                      6)
+	//TAGKEYS(                        XK_8,                      7)
+	//TAGKEYS(                        XK_6,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
   /* MEDIA KEYS */
   	{ 0,                            XF86XK_AudioLowerVolume,     spawn, {.v = lowervolumecmd } },
