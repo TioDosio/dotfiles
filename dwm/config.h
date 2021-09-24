@@ -68,7 +68,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *filemgrcmd[]  = { "nautilus", NULL };
 static const char *browsercmd[]  = { "firefox", NULL };
-//static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
+static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 //static const char *clipmenucmd[] = { "clipmenu", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *raisevolumecmd[] = { "pamixer", "-i", "5", NULL };
 static const char *lowervolumecmd[] = { "pamixer", "-d", "5", NULL };
@@ -83,6 +83,7 @@ static const char *lightDOWN[] = { "brightnessctl", "s", "10%-", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = screenshotcmd } },
 	{ MODKEY,		                XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,		                XK_e,      spawn,          {.v = filemgrcmd } },
 	{ MODKEY,		                XK_f,      spawn,          {.v = browsercmd } },
